@@ -26,8 +26,8 @@ Montague-PasteDeploy
     :target: https://landscape.io/github/inklesspen/montague_pastedeploy/master
     :alt: Code Quality Status
 
-.. image:: https://readthedocs.org/projects/montague_pastedeploy/badge/?style=flat
-    :target: https://readthedocs.org/projects/montague_pastedeploy
+.. image:: https://readthedocs.org/projects/montague-pastedeploy/badge/?style=flat
+    :target: https://readthedocs.org/projects/montague-pastedeploy
     :alt: Documentation Status
 
 Montague-PasteDeploy is a loader for Montague with full PasteDeploy_ backwards compatibility.
@@ -49,7 +49,7 @@ Installation
 Documentation
 =============
 
-https://montague_pastedeploy.readthedocs.org/
+https://montague-pastedeploy.readthedocs.org/
 
 Development
 ===========
