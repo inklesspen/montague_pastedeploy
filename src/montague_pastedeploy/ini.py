@@ -3,7 +3,7 @@ from __future__ import absolute_import
 from montague.interfaces import IConfigLoader, IConfigLoaderFactory
 from zope.interface import directlyProvides, implementer
 from characteristic import attributes
-from montague.structs import DEFAULT, LoadableConfig
+from montague.structs import LoadableConfig
 import copy
 import six
 from .upstream.loadwsgi import (
@@ -97,8 +97,8 @@ class PasteDeployConfigLoader(object):
         return config
 
     def app_config(self, name):
-        uri = 'config:{}'.format(self.path)
-        if name is DEFAULT:
+        uri = 'config:{0}'.format(self.path)
+        if name == 'main':
             name = None
         orig_name = self._preprocess_name(name)
         if orig_name == name:
@@ -107,8 +107,8 @@ class PasteDeployConfigLoader(object):
         return self._postprocess_context(name)
 
     def server_config(self, name):
-        uri = 'config:{}'.format(self.path)
-        if name is DEFAULT:
+        uri = 'config:{0}'.format(self.path)
+        if name == 'main':
             name = None
         orig_name = self._preprocess_name(name)
         if orig_name == name:
@@ -117,8 +117,8 @@ class PasteDeployConfigLoader(object):
         return self._postprocess_context(name)
 
     def filter_config(self, name):
-        uri = 'config:{}'.format(self.path)
-        if name is DEFAULT:
+        uri = 'config:{0}'.format(self.path)
+        if name == 'main':
             name = None
         orig_name = self._preprocess_name(name)
         if orig_name == name:

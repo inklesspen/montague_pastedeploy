@@ -59,10 +59,10 @@ setup(
     ],
     install_requires=[
         # eg: "aspectlib==1.1.1", "six>=1.7",
+        "montague>=0.1.6",
         "six>=1.8.0",
         "zope.interface>=4.1.1",
         "characteristic>=14.2.0",
-        "montague>=0.1.0"
     ],
     extras_require={
         # eg: 'rst': ["docutils>=0.11"],
