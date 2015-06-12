@@ -1,13 +1,13 @@
 from __future__ import absolute_import
 
 from montague.interfaces import IConfigLoader, IConfigLoaderFactory
+from six.moves.configparser import SafeConfigParser
 from zope.interface import directlyProvides, implementer
 from characteristic import attributes
 from montague.structs import LoadableConfig
-import copy
-import six
+from montague.logging import convert_loggers, convert_handlers, convert_formatters, combine
 from .upstream.loadwsgi import (
-    APP, FILTER, SERVER, PIPELINE, FILTER_APP, FILTER_WITH, ConfigLoader, loadcontext)
+    APP, FILTER, SERVER, loadcontext)
 
 SCHEMEMAP = {
     'application': 'application',
@@ -125,3 +125,16 @@ class PasteDeployConfigLoader(object):
             context = loadcontext(FILTER, uri, name)
             name = self._populate_contexts(orig_name, context)
         return self._postprocess_context(name)
+
+    def logging_config(self, name):
+        if name != 'main':
+            raise KeyError
+        parser = SafeConfigParser()
+        parser.read(self.path)
+        for section_name in ('loggers', 'handlers', 'formatters'):
+            if not parser.has_section(section_name):
+                raise KeyError
+        loggers = convert_loggers(parser)
+        handlers = convert_handlers(parser)
+        formatters = convert_formatters(parser)
+        return combine(loggers, handlers, formatters)
