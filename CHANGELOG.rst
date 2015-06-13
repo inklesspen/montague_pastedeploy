@@ -7,6 +7,7 @@ unreleased
 
 * changed DEFAULT behavior in test config loader to correspond to Montague 0.1.6. This is a breaking change.
 * added support for logging_config
+* Removed bundled fakeapp egg in favor of montague_testapps.
 
 0.1.0 (2014-11-12)
 -----------------------------------------

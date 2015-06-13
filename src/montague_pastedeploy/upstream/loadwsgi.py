@@ -11,7 +11,6 @@ import pkg_resources
 from six.moves.configparser import ConfigParser
 from six.moves.urllib.parse import unquote
 from .util import fix_call, lookup_object
-from montague.structs import LoadableConfig
 
 __all__ = ['loadapp', 'loadserver', 'loadfilter', 'appconfig']
 
