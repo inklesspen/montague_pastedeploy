@@ -1,8 +1,6 @@
 from __future__ import absolute_import
 
-from montague.interfaces import IConfigLoader, IConfigLoaderFactory
 from six.moves.configparser import SafeConfigParser
-from zope.interface import directlyProvides, implementer
 from characteristic import attributes
 from montague.structs import LoadableConfig
 from montague.logging import convert_loggers, convert_handlers, convert_formatters, combine
@@ -28,9 +26,7 @@ TYPEMAP = {
 
 
 @attributes(['path'], apply_with_init=False, apply_immutable=True)
-@implementer(IConfigLoader)
 class PasteDeployConfigLoader(object):
-    directlyProvides(IConfigLoaderFactory)
 
     def __init__(self, path):
         self.path = path
