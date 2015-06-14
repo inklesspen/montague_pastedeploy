@@ -19,7 +19,7 @@ def read(*names, **kwargs):
 
 setup(
     name="montague_pastedeploy",
-    version="0.1.0",
+    version="0.2.0",
     license="MIT",
     description=("Montague provides functions to load WSGI apps and servers "
                  "based on configuration files. "
