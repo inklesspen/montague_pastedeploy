@@ -2,6 +2,7 @@ import os
 from montague import load_app, load_server, load_filter
 from montague.loadwsgi import Loader
 from montague.structs import ComposedFilter
+from montague.validation import validate_montague_standard_format, validate_config_loader_methods
 import montague_testapps
 
 here = os.path.dirname(__file__)
@@ -70,3 +71,10 @@ def test_nested():
         assert loadable.local_conf['method_to_call'] == item
         loadable = loadable.inner
     assert loadable.is_app
+
+
+def test_validity():
+    config_path = os.path.join(here, 'config_files/simple_config.ini')
+    loader = Loader(config_path)
+    config_loader = loader.config_loader
+    validate_config_loader_methods(config_loader)
