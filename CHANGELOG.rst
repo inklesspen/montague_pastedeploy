@@ -2,10 +2,10 @@
 Changelog
 =========
 
-unreleased
+0.2.0 (2015-06-14)
 -----------------------------------------
 
-* changed DEFAULT behavior in test config loader to correspond to Montague 0.1.6. This is a breaking change.
+* changed DEFAULT behavior in test config loader to correspond to Montague 0.2.0. This is a breaking change.
 * added support for logging_config
 * Removed bundled fakeapp egg in favor of montague_testapps.
 * Removed zope interfaces to correspond to the next version of Montague.
